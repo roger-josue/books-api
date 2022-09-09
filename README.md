@@ -37,12 +37,14 @@ sudo mv composer.phar /usr/local/bin/composer
 ### Steps to run the project
 Clone the repository
 Create a database and configure your .env file in the project.
-
-Run the following commands on you project directory path
+Run the following commands on the project directory path
 ```
 composer install
 php artisan key:generate
 php artisan migrate
+```
+Run the project with the following command
+```
 php artisan serve
 ```
 ### Available endpoints
