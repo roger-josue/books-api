@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title',100);
             $table->text('description');
-            $table->string('url',255)->nullable();
+            $table->text('url')->nullable();
             $table->integer('year_published');
             $table->boolean('available')->default(false);
             $table->timestamps();
