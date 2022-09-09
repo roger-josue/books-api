@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/books',[BookController::class,'index']);
+Route::get('/books/{id}',[BookController::class,'show']);
+Route::get('/books/search/{title}',[BookController::class,'search']);
 
-Route::post('/books',[BookController::class,'store']);
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware'=>['auth:sanctum']], function () {
+    Route::post('/books',[BookController::class,'store']);
+    Route::put('/books/{id}',[BookController::class,'update']);
+    Route::delete('/books/{id}',[BookController::class,'destroy']);
 });

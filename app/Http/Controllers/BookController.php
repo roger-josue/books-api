@@ -44,7 +44,7 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        return Book::find($id);
     }
 
     /**
@@ -56,7 +56,9 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $book = Book::find($id);
+        $book->update($request->all());
+        return $book;
     }
 
     /**
@@ -67,6 +69,17 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Book::destroy($id);
+    }
+   
+    /**
+     * Search the specified resource from storage.
+     *
+     * @param  str  $title
+     * @return \Illuminate\Http\Response
+     */
+    public function search($title)
+    {
+        return Book::where('title','like', '%' . $title . '%')->get();
     }
 }
