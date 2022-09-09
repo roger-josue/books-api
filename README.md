@@ -36,7 +36,9 @@ sudo mv composer.phar /usr/local/bin/composer
 
 ### Steps to run the project
 Clone the repository
+
 Create a database and configure your .env file in the project.
+
 Run the following commands on the project directory path
 ```
 composer install
