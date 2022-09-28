@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use auth;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
@@ -33,7 +34,10 @@ class BookController extends Controller
             'available' => 'nullable|boolean'
         ]);
 
-        return Book::create($request->all());
+        $book = $request->all();
+        $book["user_id"] = auth()->id();
+
+        return Book::create($book);
     }
 
     /**
