@@ -8,47 +8,27 @@
 </p>
 
 # Books API
-Simple API with CRUD operations to manage data for your book collection.
-## Installation
+Simple API with CRUD operations to manage data for your books collection.
 
-### Install PHP
-```sudo apt install php8.1-cli
-sudo apt-get install php-common php-mysql
-sudo apt-get install php-mbstring
-sudo apt install php-xml
-sudo apt install php-curl
+## Installation and Usage
+
+### Install Docker Desktop (https://www.docker.com/products/docker-desktop/)
+
+### Clone the main branch on this repo
+
+In the root directory there is a file called .env.example. Duplicate this file and name it .env and run the following command to generate the APP_KEY
 ```
-
-### Install MySQL
-```
-sudo apt install mysql-server
-```
-
-### Install Composer
-```php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-php composer-setup.php
-php -r "unlink('composer-setup.php');"
-sudo mv composer.phar /usr/local/bin/composer
-```
-
-## Usage
-
-### Steps to run the project
-Clone the repository
-
-Create a database and configure your .env file in the project.
-
-Run the following commands on the project directory path
-```
-composer install
 php artisan key:generate
+```
+Run the migrations with the following command:
+```
 php artisan migrate
 ```
 Run the project with the following command
 ```
-php artisan serve
+./vendor/bin/sail up
 ```
+
 ### Available endpoints
 |HTTP method|CRUD|Endpoint|
 |----------|:-------------:|------:|
